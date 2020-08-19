@@ -3,7 +3,8 @@
     <nav class="navbar">
       <router-link v-for="routes in links"
                    v-bind:key="routes.id" 
-                   :to="`${routes.page}`">
+                   :to="`${routes.page}`"
+                   class="routelinks">
                    {{routes.text}}
         </router-link>
     </nav>
@@ -24,17 +25,17 @@ export default {
       {
         id:1,
         text: 'Services',
-        page: '/Services'
+        page: '/services'
       },
       {
         id:2,
         text: 'Orders',
-        page: '/Orders'
+        page: '/orders'
       },
       {
         id:4,
         text: 'About',
-        page: '/About'
+        page: '/about'
       }
     ]
   }
@@ -45,17 +46,21 @@ export default {
 
 <style  scoped>
 .mainnav {
-  width: 100%;
-  margin-top: 40px;
+  background-color:#008000;
+  padding:15px;
 }
-nav.navbar {
-  width: 100%;
-  text-align: center;
-  padding:20px;
+.navbar {
   display: block;
+  text-align: right;
+  padding: 10px;
+  margin-right:6%; 
 }
-.navbar a {
-  padding: 50px;
+.routelinks {
+  margin-right:50px;
   text-decoration: none;
+  color: white;
+  font-size: large;
+  margin-right: 50px;
 }
+
 </style>
