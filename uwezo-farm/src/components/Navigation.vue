@@ -48,7 +48,7 @@ export default {
 .mainnav {
   background-color:#008000;
   padding:15px;
-}
+  }
 .navbar {
   display: block;
   text-align: right;

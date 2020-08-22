@@ -1,55 +1,28 @@
 <template>
   <div id="app">
-    <div>
-    <b-carousel
-      id="carousel-1"
-      v-model="slide"
-      :interval="4000"
-      controls
-      indicators
-      background="#ababab"
-      img-width="1024"
-      img-height="480"
-      style="text-shadow: 1px 1px 2px #333;"
-      @sliding-start="onSlideStart"
-      @sliding-end="onSlideEnd"
-    >
-      <!-- Text slides with image -->
-      <b-carousel-slide
-        caption="First slide"
-        text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-        img-src="https://picsum.photos/1024/480/?image=52"
-      ></b-carousel-slide>
-
-      <!-- Slides with custom text -->
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
-      </b-carousel-slide>
-
-      <!-- Slides with image only -->
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58"></b-carousel-slide>
-
-      <!-- Slides with img slot -->
-      <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
-      <b-carousel-slide>
-        <template v-slot:img>
-          <img
-            class="d-block img-fluid w-100"
-            width="1024"
-            height="480"
-            src="https://picsum.photos/1024/480/?image=55"
-            alt="image slot"
-          >
-        </template>
-      </b-carousel-slide>
-    </b-carousel>
-
-  </div>
+    <div class="wrapper">
+       <Header></Header>
+       <div class="floating-form">
+        <Signup></Signup>
+      </div>
+      <div class="service-section">
+        <Servicelist></Servicelist>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import Header from '../components/Header'
+import Signup from '../components/Signup'
+import Servicelist from '../components/Servicelist'
 export default {
   name: 'Home',
+  components:{
+      Header,
+      Signup,
+      Servicelist
+  },
   data(){
        return {
         slide: 0,
@@ -58,3 +31,33 @@ export default {
     }
 }
 </script>
+
+<style  scoped>
+.wrapper {
+  position: relative;
+  z-index: 0;  /* Parent index needs to be lowe than the child index*/
+}
+.floating-form {
+width: 20rem;
+top: 0;
+margin-top: 10rem;
+margin-left: 70%;
+z-index: 1;
+position: absolute; /* Change this to make the signup/login form sticky*/
+    
+}   
+.fullwidth {
+  width: 100%;
+  z-index: 0;
+  opacity: 0.1;
+}
+
+.service-section {
+  width: 90%;
+  padding: 0%;
+  background-color:#C9CACC;
+  position: absolute;
+  z-index: 1;
+
+}
+</style>
