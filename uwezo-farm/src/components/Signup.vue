@@ -24,7 +24,7 @@
                                 id="email-input"
                                 type="email"
                                 required
-                                placeholder="Enter email"
+                                placeholder="Enter your email"
                             >   </b-form-input>
 
                             </b-form-group>
@@ -47,7 +47,7 @@
                             >
                                 <b-button variant="outline-success">Sign Up</b-button>
                                 <br>
-                                <p>Have an account? <a href="#">   Sign In</a></p>
+                                <p id="loginprompt">Have an account? <a href="#">   Sign In</a></p>
                             </b-form-group>
                         </b-form>
                 
@@ -74,5 +74,9 @@ box-shadow:
   0 22.3px 17.9px rgba(0, 0, 0, 0.072),
   0 41.8px 33.4px rgba(0, 0, 0, 0.086),
   0 100px 80px rgba(0, 0, 0, 0.12);
+}
+#loginprompt {
+    display: inline;
+    float: right;
 }
 </style>

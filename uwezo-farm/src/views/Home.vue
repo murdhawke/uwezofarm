@@ -32,15 +32,18 @@ export default {
 }
 </script>
 
-<style  scoped>
+<style >
 .wrapper {
   position: relative;
+  left: 0;
+  top:0;
   z-index: 0;  /* Parent index needs to be lowe than the child index*/
 }
 .floating-form {
-width: 20rem;
+width: 30rem;
 top: 0;
-margin-top: 10rem;
+left: 0;
+margin-top: 8rem;
 margin-left: 70%;
 z-index: 1;
 position: absolute; /* Change this to make the signup/login form sticky*/
@@ -52,12 +55,12 @@ position: absolute; /* Change this to make the signup/login form sticky*/
   opacity: 0.1;
 }
 
-.service-section {
-  width: 90%;
-  padding: 0%;
-  background-color:#C9CACC;
+#service-group{
   position: absolute;
-  z-index: 1;
-
+  top: 0rem;
+  left: 0;
+  margin-top:60rem;
+  z-index:2;
+  
 }
 </style>

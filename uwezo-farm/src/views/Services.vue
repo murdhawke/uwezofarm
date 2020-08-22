@@ -1,12 +1,26 @@
 <template>
   <div id="app">
-    <h1>Services</h1>
-      <p>This is the Services page.</p>
+    <div class="container">
+      <div class="filter">
+        <Servicesearch></Servicesearch>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import Servicesearch from '../components/Servicesearch'
 export default {
-  name: 'Services'
+  name: 'Services',
+  components: {
+    Servicesearch
+  }
 }
 </script>
+
+<style>
+.container {
+  padding: 20px;
+  
+}
+</style>

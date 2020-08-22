@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <div class="header-wrapper">
-                <b-img  id="headerimg" src="https://images.pexels.com/photos/3458362/pexels-photo-3458362.jpeg?cs=srgb&dl=pexels-alex-rusin-3458362.jpg&fm=jpg" fluid-grow alt="Fluid-grow image"></b-img>
+                <b-img  id="headerimg" src="https://images.pexels.com/photos/3458362/pexels-photo-3458362.jpeg?cs=srgb&dl=pexels-alex-rusin-3458362.jpg&fm=jpg" fluid alt="Fluid-grow image"></b-img>
                 <div id="main-jumbo">
                     <header>
                         <h1 class="main-heading">Innovative Farming</h1>
