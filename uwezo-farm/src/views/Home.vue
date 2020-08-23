@@ -40,7 +40,7 @@ export default {
   z-index: 0;  /* Parent index needs to be lowe than the child index*/
 }
 .floating-form {
-width: 30rem;
+width: 25rem;
 top: 0;
 left: 0;
 margin-top: 8rem;

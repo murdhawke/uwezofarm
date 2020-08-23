@@ -1,53 +1,37 @@
 <template>
     <div id="app">
-        <div class="signup">
-                <header>
-                    <h3>Sign Up</h3>
-                </header>   
-                <b-card
-                    header="Create an account"
-                    header-text-variant="white"
-                    header-tag="header"
-                    header-bg-variant="success"
-                    style="maz-width: 20rem;"
-                    id="signup-card"
-                    >
-                        
+        <div class="signup">  
+                <b-card header="Create an account" header-text-variant="white"  header-tag="header"  header-bg-variant="success" style="maz-width: 20rem;" id="signup-card">
                         <b-form id="signup-form">
+                            <b-form-group v-model="user.name"  id="name-group" label="Name" label-for="name-input">
+                                <input type="text" class="form-control" id="name" v-model="user.name"/>
+                            </b-form-group>
                             <b-form-group
                                 id="email-group"
                                 label="Email Address"
                                 label-for="email-input"
-                                description="We'll never share your email with anyone else."                         
+                                description="We'll never share your email with anyone else."                        
                             >
-                            <b-form-input
-                                id="email-input"
-                                type="email"
-                                required
-                                placeholder="Enter your email"
-                            >   </b-form-input>
+                                <input type="text" class="form-control" id="email" v-model="user.email"/>
 
                             </b-form-group>
                             <b-form-group
                                 id="pass-group"
                                 label="Password"
-                                label-for="pass-input"                      
+                                label-for="pass-input" 
+                                v-model="user.password"                     
                             >
-                            <b-form-input
-                                id="pass-input"
-                                type="password"
-                                required
-                                placeholder="Password"
-                            >   </b-form-input>
+                                <input type="password" class="form-control" id="password" v-model="user.password"/>
 
                             </b-form-group>
                             <b-form-group
                                 id="submit-btn"
                                 type="button"    
                             >
-                                <b-button variant="outline-success">Sign Up</b-button>
+                                <b-button  @click="userRegistration()" variant="outline-success">Sign Up</b-button>
                                 <br>
                                 <p id="loginprompt">Have an account? <a href="#">   Sign In</a></p>
+
                             </b-form-group>
                         </b-form>
                 
@@ -56,12 +40,43 @@
     </div>
 </template>
 
+<script>
+import firebase from 'firebase';
+export default {
+    data() {
+        return {
+            user: {
+                'name':'',
+                'email':'',
+                'password':''
+            }
+        };
+    },
+    methods: {
+       userRegistration() {
+            firebase
+                .auth()
+                .createUserWithEmailAndPassword(this.user.email, this.user.password)
+                .then((res) => {
+            res.user
+                 .updateProfile({
+            displayName: this.user.name
+             })
+                .then(() => {
+            this.$router.push('/services')
+          });
+      })
+      .catch((error) => {
+         alert(error.message);
+      });
+        }
+    }
+}
+</script>
+
 
 <style>
-header {
-    text-align: center;
-    padding: 5px;
-}
+
 .signup {
     padding: 15px;
 }

@@ -1,4 +1,45 @@
 
 <b-jumbotron header="Innovative Farming" lead="Convenient.  Cheap.  Reliable.">
                         <p> Hassle free farming at your hands.  From anywhere in the world!</p>
-                    </b-jumbotron>
+</b-jumbotron>
+
+
+==========================
+FIREBASE configuration uwezofarm
+-------------------------
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBbHQrhuH5I_AYUSScDpGheCzE-7nTKu3U",
+    authDomain: "uwezofarm-f00a2.firebaseapp.com",
+    databaseURL: "https://uwezofarm-f00a2.firebaseio.com",
+    projectId: "uwezofarm-f00a2",
+    storageBucket: "uwezofarm-f00a2.appspot.com",
+    messagingSenderId: "829124965247",
+    appId: "1:829124965247:web:25ee573c3e2ab5d07ee04a",
+    measurementId: "G-Z0ZQT0LCY4"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+===========================
+userRegistration() {
+            firebase
+                .auth()
+                .createUserWithEmailAndPassword(this.user.email, this.user.password)
+                .then((res) => {
+            res.user
+                 .updateProfile({
+            displayName: this.user.name
+             })
+                .then(() => {
+            this.$router.push('/services')
+          });
+      })
+      .catch((error) => {
+         alert(error.message);
+      });
+        }
+    }

@@ -1,9 +1,7 @@
 <template>
     <div id="app">
         <div class="signin">
-                <header>
-                    <h3>Sign In</h3>
-                </header>   
+            <form @submit.prevent="userLogin">  
                 <b-card
                     header="Log In"
                     header-text-variant="white"
@@ -25,6 +23,7 @@
                                 type="email"
                                 required
                                 placeholder="Enter email"
+                                v-model="user.email"
                             >   </b-form-input>
 
                             </b-form-group>
@@ -38,6 +37,7 @@
                                 type="password"
                                 required
                                 placeholder="Password"
+                                v-model="user.password"
                             >   </b-form-input>
 
                             </b-form-group>
@@ -45,17 +45,44 @@
                                 id="submit-btn"
                                 type="button"    
                             >
-                                <b-button variant="outline-info">Sign Up</b-button>
+                                <b-button type="submit" variant="outline-info">Sign Up</b-button>
                                 <br>
                                 <p>Have an account? <a href="#">   Sign In</a></p>
                             </b-form-group>
                         </b-form>
                 
                 </b-card>
+            </form>
             </div>
     </div>
 </template>
 
+<script>
+import Firebase from "firebase"
+export default {
+    data() {
+        return {
+            user: {
+                email:'',
+                password:''
+            }
+        };
+    },
+    methods: {
+        userLogin(){
+            firebase
+            .auth()
+            .signInWithEmailAndPassword(this.user.email, this.user.password)
+            .then(() => {
+                this.$router.push('/services')
+            })
+            .catch((error) => {
+                alert(error.message);
+            });
+        }
+    }    
+}
+</script>
 
 <style>
 header {
