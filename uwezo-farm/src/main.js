@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import * as firebase from 'firebase'
+import axios from 'axios'
 
 
 import 'bootstrap'
@@ -16,6 +17,7 @@ import  './../main.css'
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
+Vue.use(axios)
 
 const firebaseConfig = {
   apiKey: "AIzaSyBbHQrhuH5I_AYUSScDpGheCzE-7nTKu3U",

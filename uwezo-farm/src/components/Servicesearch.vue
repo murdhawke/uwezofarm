@@ -8,26 +8,7 @@
                             <input class="form-control mr-sm-2" id="searchbox" type="search" placeholder="What are you looking for?" aria-label="Search">
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                             <br>
-                            <b-container class="category-wrapper">
-                                <b-row>
-                                    <b-col>
-                                        <div class="mb-2">
-                                            <b-avatar src="https://placekitten.com/300/300" size="6rem"></b-avatar>
-                                        </div>
-                                    </b-col>
-                                    <b-col>
-                                        
-                                        <div class="mb-2">
-                                            <b-avatar src="https://placekitten.com/300/300" size="6rem"></b-avatar>
-                                        </div>
-                                    </b-col>
-                                        <b-col>
-                                        <div class="mb-2">
-                                            <b-avatar src="https://placekitten.com/300/300" size="6rem"></b-avatar>
-                                        </div>
-                                    </b-col>
-                                </b-row>
-                            </b-container>
+                           
                         </form>
                     </b-row>
                 </b-container> 

@@ -5,9 +5,6 @@
        <div class="floating-form">
         <Signup></Signup>
       </div>
-      <div class="service-section">
-        <Servicelist></Servicelist>
-      </div>
     </div>
   </div>
 </template>
@@ -15,13 +12,11 @@
 <script>
 import Header from '../components/Header'
 import Signup from '../components/Signup'
-import Servicelist from '../components/Servicelist'
 export default {
   name: 'Home',
   components:{
       Header,
-      Signup,
-      Servicelist
+      Signup
   },
   data(){
        return {

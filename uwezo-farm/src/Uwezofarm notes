@@ -3,4 +3,52 @@ Uwezofarm notes
 
 Colors:
 
+	Main: 
 	#008000 -  nav  - green
+
+=======================
+Process flow: Base 1
+ Signup 
+ 		> Login if no account
+		then
+Services 	
+		> See a list of all services
+		> Search for a Services
+		> Book a service
+
+		then
+Orders	
+		> See all orders
+			. Filter active and completed orders
+
+		otherwise
+About
+		> header carousel
+		> Who we are
+		> Our mission
+		> Contact
+		> FAQs
+Logout
+=========================
+Process flow: Base 2
+Signup
+		> press login and login div replaces sign up div.
+		> data validation
+		> submit writes to db
+		> redirect to services
+Login
+		> data validation
+		> submit checks the db
+		> redirect to services
+Services
+		> list all services in a grid form with pagination -  fetch from services table
+		> search for a service should be immediate
+		> filter jobs (later)
+		> book a service writes to the orders table
+		> makes that service disappear from your service feed.
+Orders	
+		> show all orders
+		> filter active and completed orders
+		> show details of completed orders - price, duration,date
+About
+		

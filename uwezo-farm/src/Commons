@@ -1,0 +1,38 @@
+NO REWARD
+===============
+SB has a total of 2 points.  He does not qualify for any reward after adding the points.
+===============
+GOT REWARD
+===========
+The SB got a reward even before adding any points.
+===========
+
+
+
+
+
+
+
+
+
+
+BUG
+==============================
+
+@here
+BUG: Order history before July 8th doesn't show on the portal
+Location: GLOBAL
+Reproducible: Always
+How to Reproduce:
+Adjust the calendar filter to days earlier than July 8th
+Press the search icon to be sure this gets effected
+Actual results:
+The order history column doesn't display beyond trips taken on July 8th.
+It shows No Data Available instead.
+Expected results:
+The order history column should reflect the trips taken by the rider from his activation day according to the specified filter.
+Affected product: SafeBoda Portal
+Sample account: SB 006 (edited) 
+
+
+==============================

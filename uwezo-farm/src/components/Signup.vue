@@ -30,12 +30,52 @@
                             >
                                 <b-button  @click="userRegistration()" variant="outline-success">Sign Up</b-button>
                                 <br>
-                                <p id="loginprompt">Have an account? <a href="#">   Sign In</a></p>
+                                <p id="authprompt">Have an account? <a href="#">   Sign In</a></p>
 
                             </b-form-group>
                         </b-form>
                 
                 </b-card>
+            </div>
+            <div class="signin">
+            <form @submit.prevent="userLogin">  
+                <b-card
+                    header="Log In"
+                    header-text-variant="white"
+                    header-tag="header"
+                    header-bg-variant="info"
+                    style="maz-width: 20rem;"
+                    class="signin-card"
+                    >
+                        
+                        <b-form id="signin-form">
+                            <b-form-group
+                                id="email-group"
+                                label="Email Address"
+                                label-for="email-input"
+                                description="We'll never share your email with anyone else."                         
+                            >
+                                <input type="text" class="form-control" id="email" v-model="user.email"/>
+                            </b-form-group>
+                            <b-form-group
+                                id="pass-group"
+                                label="Password"
+                                label-for="pass-input"                      
+                            >
+                            <input type="password" class="form-control" id="password" v-model="user.password"/>
+                            </b-form-group>
+                            <b-form-group
+                                id="submit-btn"
+                                type="button"    
+                            >
+                                <b-button type="submit" variant="outline-info">Sign Up</b-button>
+                                <br>
+                                <p id="authprompt">Have an account? <a href="#">   Sign In</a></p>
+                            </b-form-group>
+                        </b-form>
+                
+                </b-card>
+            </form>
             </div>
     </div>
 </template>
@@ -65,10 +105,21 @@ export default {
                 .then(() => {
             this.$router.push('/services')
           });
-      })
-      .catch((error) => {
-         alert(error.message);
-      });
+         })
+        },
+        userLogin() {
+          firebase
+            .auth()
+            .signInWithEmailAndPassword(this.user.email, this.user.password)
+            .then(() => {
+                this.$router.push('/services')
+            })
+            .catch((error) => {
+                alert(error.message);
+            })
+                .then(() => {
+            this.$router.push('/services')
+          });
         }
     }
 }
@@ -80,8 +131,8 @@ export default {
 .signup {
     padding: 15px;
 }
-#signup-card {
-    border-radius: 5px;
+#signup-card .signin-card {
+ border-radius: 5px;
 box-shadow:
   0 2.8px 2.2px rgba(0, 0, 0, 0.034),
   0 6.7px 5.3px rgba(0, 0, 0, 0.048),
@@ -90,8 +141,12 @@ box-shadow:
   0 41.8px 33.4px rgba(0, 0, 0, 0.086),
   0 100px 80px rgba(0, 0, 0, 0.12);
 }
-#loginprompt {
+#authprompt {
     display: inline;
     float: right;
+}
+.signin-card {
+    margin-top: 15rem;
+    position: absolute;
 }
 </style>
